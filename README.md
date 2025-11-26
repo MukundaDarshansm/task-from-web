@@ -54,3 +54,69 @@ composer require laravel/sanctum
 Start server:
 
 php artisan serve
+
+
+uthentication (Sanctum Token)
+➤ Register User
+
+POST /api/register
+
+{
+  "name": "Darshan",
+  "email": "darshan@example.com",
+  "password": "password123"
+}
+
+➤ Login User (Get Token)
+
+POST /api/login
+
+{
+  "email": "darshan@example.com",
+  "password": "password123"
+}
+
+
+Response Example:
+
+{
+  "success": true,
+  "message": "Login successful",
+  "token": "YOUR_API_TOKEN_HERE"
+}
+
+
+Use this token for all authenticated requests:
+
+Authorization: Bearer YOUR_API_TOKEN_HERE
+
+📝 Notes API Endpoints
+➤ Create Note
+
+POST /api/notes
+
+{
+  "title": "My First Note",
+  "content": "This is a test note."
+}
+
+➤ List Notes
+
+GET /api/notes
+
+➤ View Note
+
+GET /api/notes/{id}
+
+➤ Update Note
+
+PUT /api/notes/{id}
+
+{
+  "title": "Updated Title",
+  "content": "Updated content."
+}
+
+➤ Delete Note
+
+DELETE /api/notes/{id}
